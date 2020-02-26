@@ -1,1 +1,1 @@
-web: bin/hubot -a slack -n attendance-bot
+web: bin/hubot -a slack -n attendance_bot

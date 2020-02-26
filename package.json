@@ -1,9 +1,9 @@
 {
-  "name": "attendance-bot",
+  "name": "attendance_bot",
   "version": "0.0.0",
   "private": true,
   "author": "Sion1073",
-  "description": "attendance-bot",
+  "description": "attendance_bot",
   "dependencies": {
     "hubot": "^3.3.2",
     "hubot-diagnostics": "^1.0.0",
