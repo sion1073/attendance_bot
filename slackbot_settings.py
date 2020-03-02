@@ -1,3 +1,5 @@
-API_TOKEN = 'xoxb-470381845157-977195822597-81ciF6D6opnAgwkJSRTElHeS'
+import os
+
+API_TOKEN = os.environ["api_token"]
 DEFAULT_REPLY = 'にゃー'
 PLUGINS = ['plugins']
