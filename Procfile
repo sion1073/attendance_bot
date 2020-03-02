@@ -1,1 +1,1 @@
-web: bin/hubot -a slack -n attendance_bot
+worker: python run.py
