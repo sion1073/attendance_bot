@@ -1,5 +1,5 @@
 import random
-import datetime
+from datetime import datetime, timedelta, timezone
 
 from slackbot.bot import respond_to
 
@@ -10,6 +10,8 @@ def omikuji(message):
 
 @respond_to('出勤')
 def work_time(message):
-    start_now = datetime.datetime.now()
-    end_time = start_now + datetime.timedelta(hours=8, minutes=45)
+
+    JST = timezone(timedelta(hours=+9), 'JST')
+    start_now = datetime.now(JST)
+    end_time = start_now + timedelta(hours=8, minutes=45)
     message.reply(end_time.strftime("%H:%M"))
