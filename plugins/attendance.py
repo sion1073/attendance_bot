@@ -6,8 +6,8 @@ from slackbot.bot import respond_to, listen_to
 
 @listen_to('出勤')
 def work_time(message):
-    start_now = datetime.datetime.now()
-    end_time = start_now + datetime.timedelta(hours=8, minutes=45)
+    start_now = datetime.now()
+    end_time = start_now + timedelta(hours=8, minutes=45)
     message.reply(end_time.strftime("%H:%M"))
 
 
@@ -18,7 +18,7 @@ def work_time(message):
     current = datetime.now(JST)
 
     text = message.body['text']
-    result = re.match(".*\s([0-9]+):([0-9]+)", content)
+    result = re.match(".*\s([0-9]+):([0-9]+)", text)
 
     hour = result.group(1)
     minute = result.group(2)
