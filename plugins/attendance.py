@@ -29,7 +29,7 @@ def work_time(message):
         year=current.year,
         month=current.month,
         day=current.day,
-        hour=hour,
-        minute=minute)
+        hour=int(hour),
+        minute=int(minute))
     end_time = start_now + timedelta(hours=8, minutes=45)
     message.reply(end_time.strftime("%H:%M"))
