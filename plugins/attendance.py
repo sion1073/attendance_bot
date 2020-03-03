@@ -30,7 +30,6 @@ def work_time(message):
         month=current.month,
         day=current.day,
         hour=hour,
-        minute=minute,
-        second=current.second)
+        minute=minute)
     end_time = start_now + timedelta(hours=8, minutes=45)
     message.reply(end_time.strftime("%H:%M"))
