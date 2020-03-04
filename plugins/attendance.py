@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 from slackbot.bot import respond_to, listen_to
 
 
-@listen_to('出勤')
+@listen_to(r'^出勤$')
 def work_time(message):
     JST = timezone(timedelta(hours=+9), 'JST')
 
