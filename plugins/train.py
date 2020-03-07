@@ -24,7 +24,7 @@ def deferred_train_search(name):
 def delay_train(message):
 
     text = message.body['text']
-    name = re.match(".*\\s([0-9]+):([0-9]+)", text)
+    name = re.match(".*\\s(.*)", text)
     if deferred_train_search(name):
         message.reply(name + "は遅延情報があります")
     else:
