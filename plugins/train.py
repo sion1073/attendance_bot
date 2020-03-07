@@ -16,11 +16,16 @@ def deferred_train_search(name):
 
     for delay_train in delay_info:
         print(delay_train["name"])
+        if delay_train["name"] == name:
+            return True
 
 
 @respond_to(r'^遅延\s.*$')
 def delay_train(message):
 
     text = message.body['text']
-    result = re.match(".*\\s([0-9]+):([0-9]+)", text)
-    deferred_train_search(result)
+    name = re.match(".*\\s([0-9]+):([0-9]+)", text)
+    if deferred_train_search(name):
+        message.reply(name + "は遅延情報があります")
+    else:
+        message.reply(name + "に遅延情報はありません")

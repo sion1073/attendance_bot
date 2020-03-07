@@ -20,10 +20,10 @@ def work_time_specification(message):
     current = datetime.now(JST)
 
     text = message.body['text']
-    result = re.match(".*\\s([0-9]+):([0-9]+)", text)
+    time = re.match(".*\\s([0-9]+):([0-9]+)", text)
 
-    hour = result.group(1)
-    minute = result.group(2)
+    hour = time.group(1)
+    minute = time.group(2)
 
     start_now = datetime(
         year=current.year,
