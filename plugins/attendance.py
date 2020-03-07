@@ -1,7 +1,7 @@
 import re
 from datetime import datetime, timedelta, timezone
 
-from slackbot.bot import respond_to, listen_to
+from slackbot.bot import listen_to
 
 
 @listen_to(r'^出勤$')
@@ -14,13 +14,13 @@ def work_time(message):
 
 
 @listen_to(r'^出勤\s[0-9]+:[0-9]+$')
-def work_time(message):
+def work_time_specification(message):
 
     JST = timezone(timedelta(hours=+9), 'JST')
     current = datetime.now(JST)
 
     text = message.body['text']
-    result = re.match(".*\s([0-9]+):([0-9]+)", text)
+    result = re.match(".*\\s([0-9]+):([0-9]+)", text)
 
     hour = result.group(1)
     minute = result.group(2)
