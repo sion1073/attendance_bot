@@ -15,7 +15,6 @@ def deferred_train_search(name):
         delay_info = json.loads(res.read())
 
     for delay_train in delay_info:
-        print(delay_train["name"])
         if delay_train["name"] == name:
             return True
 
@@ -24,7 +23,8 @@ def deferred_train_search(name):
 def delay_train(message):
 
     text = message.body['text']
-    name = re.match(".*\\s(.*)", text)
+    result = re.match("遅延\\s(.*)", text)
+    name = result.group(1)
     if deferred_train_search(name):
         message.reply(name + "は遅延情報があります")
     else:
