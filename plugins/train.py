@@ -11,7 +11,6 @@ def deferred_train_search(name):
     delay_info = {}
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req) as res:
-        # body = res.read()
         delay_info = json.loads(res.read())
 
     for delay_train in delay_info:
@@ -28,4 +27,4 @@ def delay_train(message):
     if deferred_train_search(name):
         message.reply(name + "は遅延情報があります")
     else:
-        message.reply(name + "に遅延情報はありません")
+        message.reply(name + "に関する情報はありません")
